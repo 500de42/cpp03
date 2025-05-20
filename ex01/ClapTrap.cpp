@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap(std::string Name) : Name(Name), Hit(10), Energy(10),Attack(0)
 {
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "ClapTrap Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
