@@ -1,15 +1,35 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void)
+// int main(void)
+// {
+//     ScavTrap a;
+//     ScavTrap b(a);
+
+//     a.guardGate();
+//     a.attack("JOSE");
+//     b.guardGate();
+//     b.attack("JOSE");
+// }
+
+// int main (void)
+// {
+//     ClapTrap a;
+//     ScavTrap b;
+
+//     a.attack("JOSE");
+//     b.guardGate();
+//     b.attack("JOSE");
+// }
+
+int	main(void)
 {
-    ClapTrap a("kalvin");
-    ClapTrap b("Jose");
-    ClapTrap c(b);
-
-    a.attack("Jose");
-    c.attack("kalvin");
-    a.takeDamage(5);
-    c.takeDamage(5);
-    a.beRepaired(5);
-    c.beRepaired(9);
+	ClapTrap a("Kalvin");
+	ScavTrap b("JOSE");
+	a.attack("JOSE");
+	b.guardGate();
+	b.takeDamage(0);
+	b.attack("kalvin");
+	a.takeDamage(20);
+	a.beRepaired(5);
+	b.beRepaired(5);
 }

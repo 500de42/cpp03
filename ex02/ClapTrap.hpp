@@ -10,7 +10,6 @@ class ClapTrap
 		unsigned int HItPoint; // Health
 		unsigned int EnergyPoint;
 		unsigned int AttackDamage;
-
   	public:
 		// constructeur
 		ClapTrap();

@@ -1,78 +1,79 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string Name) : Name(Name), Hit(10), Energy(10),Attack(0)
+ClapTrap::ClapTrap(std::string Name) : Name(Name), HItPoint(10),EnergyPoint(10), AttackDamage(0)
 {
-    std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-    this->Name = copy.Name;
-    this->Hit = copy.Hit;
-    this->Energy = copy.Energy;
-    this->Attack = copy.Attack;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
+	this->Name = copy.Name;
+	this->HItPoint = copy.HItPoint;
+	this->EnergyPoint = copy.EnergyPoint;
+	this->AttackDamage = copy.AttackDamage;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap &copyAssignement)
+ClapTrap &ClapTrap::operator=(const ClapTrap &copyAssignement)
 {
-    if (this->Name != copyAssignement.Name)
-        this->Name = copyAssignement.Name;
-    if (this->Attack != copyAssignement.Attack)
-        this->Attack = copyAssignement.Attack;
-    if (this->Hit != copyAssignement.Hit)
-        this->Hit = copyAssignement.Hit;
-    if (this->Energy != copyAssignement.Energy)
-        this->Energy = copyAssignement.Energy;
-    return *this;
+	if (this->Name != copyAssignement.Name)
+		this->Name = copyAssignement.Name;
+	if (this->AttackDamage != copyAssignement.AttackDamage)
+		this->AttackDamage = copyAssignement.AttackDamage;
+	if (this->HItPoint != copyAssignement.HItPoint)
+		this->HItPoint = copyAssignement.HItPoint;
+	if (this->EnergyPoint != copyAssignement.EnergyPoint)
+		this->EnergyPoint = copyAssignement.EnergyPoint;
+	return (*this);
 }
 
-void ClapTrap::attack(const std::string& target)
+void ClapTrap::attack(const std::string &target)
 {
-    if (this->Energy <= 0)
-    {
-        std::cout << "Energy point its 0" << std::endl;
-        return ;
-    }
-    if (this->Hit == 0)
-    {
-        std::cout << "Hit point its 0" << std::endl;
-        return ;
-    }
-    std::cout << this->Name << " attacks " << target << ", causing ~~ points of damage!" << std::endl;
-    this->Energy--;
+	if (this->EnergyPoint <= 0)
+	{
+		std::cout << "EnergyPoint point its 0" << std::endl;
+		return ;
+	}
+	if (this->HItPoint == 0)
+	{
+		std::cout << "HItPoint point its 0" << std::endl;
+		return ;
+	}
+	std::cout << this->Name << " AttackDamages " << target << ", causing ~~points of damage !" << std::endl;
+	this->EnergyPoint--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->Hit == 0)
-    {
-        std::cout << this->Name << " Hit point its 0" << std::endl;
-        return ;
-    }
-    this->Hit -= amount;
-    std::cout << this->Name << " has took " << amount << " damage!";
-    std::cout << " ,Hit point remaining " << this->Hit << std::endl;
+	if (this->HItPoint == 0)
+	{
+		std::cout << this->Name << " HItPoint point its 0" << std::endl;
+		return ;
+	}
+	this->HItPoint -= amount;
+	std::cout << this->Name << " has took " << amount << " damage!";
+	std::cout << " ,HItPoint point remaining " << this->HItPoint << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->Energy <= 0)
-    {
-        std::cout << this->Name << " Energy point its 0" << std::endl;
-        return ;
-    }
-    if (this->Hit == 0)
-    {
-        std::cout << "Hit point its 0" << std::endl;
-        return ;
-    }
-    this->Hit += amount;
-    std::cout << this->Name << " " << amount << "-point repair";
-    std::cout << " ,Hit point sold " << this->Hit << std::endl;
-    this->Energy--;
+	if (this->EnergyPoint <= 0)
+	{
+		std::cout << this->Name << " EnergyPoint point its 0" << std::endl;
+		return ;
+	}
+	if (this->HItPoint == 0)
+	{
+		std::cout << "HItPoint point its 0" << std::endl;
+		return ;
+	}
+	this->HItPoint += amount;
+	std::cout << this->Name << " " << amount << "-point repair";
+	std::cout << " ,HItPoint point sold " << this->HItPoint << std::endl;
+	this->EnergyPoint--;
 }

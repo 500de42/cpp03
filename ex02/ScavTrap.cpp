@@ -15,7 +15,7 @@ void ScavTrap::attack(const std::string& target)
     std::cout << this->Name << " ScavTrap attack function called" << std::endl;
     if (this->EnergyPoint == 0)
     {
-        std::cout << "EnergyPoint point its 0" << std::endl;
+        std::cout << "Energy point its 0" << std::endl;
         return ;
     }
     if (this->HItPoint == 0)
@@ -23,13 +23,13 @@ void ScavTrap::attack(const std::string& target)
         std::cout << "HItPoint point its 0" << std::endl;
         return ;
     }
-    std::cout << this->Name << " attack " << target << ", causing " << this->AttackDamage << " points of damage!" << std::endl;
+    std::cout << this->Name << " attacks " << target << ", causing " << this->AttackDamage << " points of damage!" << std::endl;
     this->EnergyPoint--;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Destructor called" << std::endl;
+    std::cout << "ScavTrap " << this->Name << " Destructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
