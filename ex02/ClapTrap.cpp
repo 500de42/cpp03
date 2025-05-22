@@ -7,12 +7,12 @@ ClapTrap::ClapTrap() : HItPoint(10), EnergyPoint(10),AttackDamage(0)
 
 ClapTrap::ClapTrap(std::string Name) : Name(Name), HItPoint(10),EnergyPoint(10), AttackDamage(0)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "ClapTrap Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -60,7 +60,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << this->Name << " HItPoint point its 0" << std::endl;
 		return ;
 	}
-	this->HItPoint -= amount;
+	if (amount > this->HItPoint)
+		this->HItPoint = 0;
+	else
+		this->HItPoint -= amount;
 	std::cout << this->Name << " has took " << amount << " damage!";
 	std::cout << " ,HItPoint point remaining " << this->HItPoint << std::endl;
 }

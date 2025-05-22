@@ -60,7 +60,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << this->Name << " HItPoint point its 0" << std::endl;
 		return ;
 	}
-	this->HItPoint -= amount;
+	if (amount > this->HItPoint)
+		this->HItPoint = 0;
+	else
+		this->HItPoint -= amount;
 	std::cout << this->Name << " has took " << amount << " damage!";
 	std::cout << " ,HItPoint point remaining " << this->HItPoint << std::endl;
 }

@@ -1,5 +1,6 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 // int main(void)
 // {
@@ -53,3 +54,29 @@ int main (void)
     a.beRepaired(5);
     b.beRepaired(5);
 }
+
+// int main()
+// {
+//     DiamondTrap kalvin("kalvin");
+
+//     kalvin.whoAmI();
+//     kalvin.attack("jose");
+//     kalvin.beRepaired(50);
+//     kalvin.highFivesGuys();
+//     kalvin.takeDamage(5);
+// }
+
+// int main()
+// {
+//     DiamondTrap kalvin("kalvin");
+//     DiamondTrap ll("lll");
+//     ll.whoAmI();
+//     ll = kalvin;
+    
+//     ll.whoAmI();
+//     ll.attack("jose");
+//     ll.beRepaired(50);
+//     ll.highFivesGuys();
+//     ll.takeDamage(5);
+// }
+

@@ -12,7 +12,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 
 void ScavTrap::attack(const std::string& target)
 {
-    std::cout << this->Name << " ScavTrap attack function called" << std::endl;
+    std::cout << ClapTrap::Name << " ScavTrap attack function called" << std::endl;
     if (this->EnergyPoint == 0)
     {
         std::cout << "Energy point its 0" << std::endl;
@@ -23,7 +23,7 @@ void ScavTrap::attack(const std::string& target)
         std::cout << "HItPoint point its 0" << std::endl;
         return ;
     }
-    std::cout << this->Name << " attacks " << target << ", causing " << this->AttackDamage << " points of damage!" << std::endl;
+    std::cout << ClapTrap::Name << " attacks " << target << ", causing " << this->AttackDamage << " points of damage!" << std::endl;
     this->EnergyPoint--;
 }
 
