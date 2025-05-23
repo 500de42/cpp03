@@ -5,15 +5,17 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-    private :
-        std::string Name;
     public :
         ScavTrap();
         ScavTrap(std::string Name);
         ScavTrap(const ScavTrap &copy);
+        ScavTrap &operator=(const ScavTrap &copyAssignement);
         ~ScavTrap();
-        void attack(const std::string& target);
+        virtual void attack(const std::string& target);
         void guardGate();
+        static unsigned int get_attack();
+        static unsigned int get_energy();
+        static unsigned int get_hit();
 };
 
 #endif

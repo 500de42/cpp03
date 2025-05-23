@@ -1,5 +1,10 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() : HItPoint(10),EnergyPoint(10), AttackDamage(0)
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string Name) : Name(Name), HItPoint(10),EnergyPoint(10), AttackDamage(0)
 {
 	std::cout << "ClapTrap Constructor called" << std::endl;
@@ -36,15 +41,15 @@ void ClapTrap::attack(const std::string &target)
 {
 	if (this->EnergyPoint <= 0)
 	{
-		std::cout << "EnergyPoint point its 0" << std::endl;
+		std::cout << this->Name << "EnergyPoint its 0 attack it's impossible" << std::endl;
 		return ;
 	}
 	if (this->HItPoint == 0)
 	{
-		std::cout << "HItPoint point its 0" << std::endl;
+		std::cout << this->Name << "HItPoint its 0 attack it's impossible" << std::endl;
 		return ;
 	}
-	std::cout << this->Name << " AttackDamages " << target << ", causing ~~points of damage !" << std::endl;
+	std::cout << this->Name << " attack " << target << ", causing " << this->AttackDamage << " damage points!" << std::endl;
 	this->EnergyPoint--;
 }
 
@@ -52,7 +57,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->HItPoint == 0)
 	{
-		std::cout << this->Name << " HItPoint point its 0" << std::endl;
+		std::cout  << " hitpoint is already at 0 "<< this->Name << " can't take any more damage" << std::endl;
 		return ;
 	}
 	if (amount > this->HItPoint)
@@ -60,23 +65,23 @@ void ClapTrap::takeDamage(unsigned int amount)
 	else
 		this->HItPoint -= amount;
 	std::cout << this->Name << " has took " << amount << " damage!";
-	std::cout << " ,HItPoint point remaining " << this->HItPoint << std::endl;
+	std::cout << " ,HitPoint remaining " << this->HItPoint << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->EnergyPoint <= 0)
 	{
-		std::cout << this->Name << " EnergyPoint point its 0" << std::endl;
+		std::cout << this->Name << " EnergyPoint at 0 repair impossible" << std::endl;
 		return ;
 	}
 	if (this->HItPoint == 0)
 	{
-		std::cout << "HItPoint point its 0" << std::endl;
+		std::cout << this->Name << " HitPoint at 0 repair impossible" << std::endl;
 		return ;
 	}
 	this->HItPoint += amount;
 	std::cout << this->Name << " " << amount << "-point repair";
-	std::cout << " ,HItPoint point sold " << this->HItPoint << std::endl;
+	std::cout << " ,HitPoint sold " << this->HItPoint << std::endl;
 	this->EnergyPoint--;
 }

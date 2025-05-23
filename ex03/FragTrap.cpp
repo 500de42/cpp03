@@ -3,6 +3,9 @@
 FragTrap::FragTrap()
 {
     std::cout << "FragTrap default constructor called" << std::endl;
+    this->HItPoint = 100;
+    this->EnergyPoint = 100;
+    this->AttackDamage = 30;
 }
 
 void FragTrap::highFivesGuys()
@@ -28,3 +31,30 @@ FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
     std::cout << "FragTrap copy constructor called" << std::endl;
 }
 
+FragTrap &FragTrap::operator=(const FragTrap &copyAssignement)
+{
+	if (this->Name != copyAssignement.Name)
+		this->Name = copyAssignement.Name;
+	if (this->AttackDamage != copyAssignement.AttackDamage)
+		this->AttackDamage = copyAssignement.AttackDamage;
+	if (this->HItPoint != copyAssignement.HItPoint)
+		this->HItPoint = copyAssignement.HItPoint;
+	if (this->EnergyPoint != copyAssignement.EnergyPoint)
+		this->EnergyPoint = copyAssignement.EnergyPoint;
+	return (*this);
+}
+
+unsigned int FragTrap::get_attack()
+{
+    return 30;
+}
+
+unsigned int FragTrap::get_hit()
+{
+    return 100;
+}
+
+unsigned int FragTrap::get_energy()
+{
+    return 100;
+}

@@ -10,7 +10,11 @@ class FragTrap : virtual public ClapTrap
         FragTrap(std::string Name);
         ~FragTrap();
         FragTrap(const FragTrap &copy);
+        FragTrap &operator=(const FragTrap &copyAssignement);
         void highFivesGuys(void);
+        static unsigned int get_attack();
+        static unsigned int get_energy();
+        static unsigned int get_hit();
 };
 
 #endif
